@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:localdb"
+             x:Class="localdb.MainPage">
+            
+
+    <StackLayout Margin="40">
+
+        <Label Text="Registration Form" FontSize="20" FontAttributes="Bold" TextColor="#1690F4" VerticalOptions="Center" HorizontalOptions="Center" Margin="20"/>
+        <Image Source="https://i.pinimg.com/originals/c6/5a/e5/c65ae57af0b59c7f3177184358d59259.gif" IsAnimationPlaying="True" WidthRequest="175" HeightRequest="175"/>
+
+        <Label Text="Enter E-mail"/>
+        <Entry x:Name="Email"  Placeholder="Your name here" />
+
+        <Label Text="Enter Password"/>
+        <Entry IsPassword="True" x:Name="Password" Placeholder="Your password here" />
+
+
+
+        <Button Text="Register" HorizontalOptions="FillAndExpand" BackgroundColor="#1690F4" TextColor="White" Margin="0,20" Clicked="OnButtonClicked" />
+
+
+        <ListView x:Name="RegistrationListView" 
+                      ItemsSource="{Binding Registration}"
+                      BackgroundColor="#F0ECEC"
+                      SelectionMode="None" 
+                      Footer="">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Margin="0,10">
+                            <Label  Text="{Binding Email}"      FontSize="15" />
+                            <Label  Text="{Binding Password}"  FontSize="15" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
